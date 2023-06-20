@@ -80,7 +80,9 @@ systemctl restart containerd.service
 
 # change ip address according to your interface
 
-kubeadm init --apiserver-advertise-address=10.0.0.1
+read -p "Enter the IP address for the API server: " ip_address
+
+kubeadm init --apiserver-advertise-address=$ip_address
 sleep 5
 systemctl restart containerd.service
 sleep 5
