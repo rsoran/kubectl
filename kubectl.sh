@@ -72,7 +72,7 @@ yum update
 
 sudo yum install -y kubectl
 systemctl restart containerd.service
-rm /etc/containerd/config.toml -y
+rm /etc/containerd/config.toml
 systemctl restart containerd.service
 
 systemctl stop firewalld
