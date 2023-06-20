@@ -93,11 +93,15 @@ sleep 5
 systemctl restart containerd.service
 sleep 5
 systemctl restart kubelet.service
-sleep 150
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
 sleep 250
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+sleep 25
+systemctl restart containerd.service
+sleep 50
+systemctl restart kubelet.service
+sleep 50
+
 sudo kubectl get nodes
 
 
