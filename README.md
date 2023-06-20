@@ -1,5 +1,5 @@
 # kubectl
-Installing docker and kubectl on centos 9 with minikube
+Installing docker and kubectl on centos 9 with kubeadm
 
 
 First Copy this script to your root home dir 
