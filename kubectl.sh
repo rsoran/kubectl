@@ -85,7 +85,7 @@ sleep 5
 systemctl restart containerd.service
 sleep 5
 systemctl restart kubelet.service
-sleep 150
+sleep 5
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -93,10 +93,10 @@ sleep 5
 systemctl restart containerd.service
 sleep 5
 systemctl restart kubelet.service
-sleep 15
+sleep 150
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-sleep 25
+sleep 250
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 sudo kubectl get nodes
 
