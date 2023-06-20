@@ -95,7 +95,9 @@ sleep 5
 systemctl restart kubelet.service
 sleep 15
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-sleep 30
+
+sleep 15
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 sudo kubectl get nodes
 
 
