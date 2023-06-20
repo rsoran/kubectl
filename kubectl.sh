@@ -81,11 +81,11 @@ systemctl restart containerd.service
 # change ip address according to your interface
 
 kubeadm init --apiserver-advertise-address=10.0.0.1
-sleep 15
+sleep 5
 systemctl restart containerd.service
 sleep 5
 systemctl restart kubelet.service
-sleep 15
+sleep 150
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -96,7 +96,7 @@ systemctl restart kubelet.service
 sleep 15
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-sleep 15
+sleep 25
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 sudo kubectl get nodes
 
