@@ -84,9 +84,9 @@ kubeadm init --apiserver-advertise-address=10.0.0.1
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+sleep 20
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
+sleep 30
 sudo kubectl get nodes
 
 
