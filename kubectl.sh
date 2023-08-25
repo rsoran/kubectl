@@ -82,29 +82,25 @@ systemctl restart containerd.service
 
 # change ip address according to your interface
 
-read -p "Enter the IP address for the API server: " ip_address
+#read -p "Enter the IP address for the API server: " ip_address
 
-kubeadm init --apiserver-advertise-address=$ip_address
-sleep 5
-systemctl restart containerd.service
-sleep 5
-systemctl restart kubelet.service
-sleep 5
+kubeadm init #--apiserver-advertise-address=$ip_address
+
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-sleep 5
-systemctl restart containerd.service
-sleep 5
-systemctl restart kubelet.service
-sleep 300
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-sleep 25
+export kubever=$(kubectl version | base64 | tr -d '\n')
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+
+
+#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
 systemctl restart containerd.service
-sleep 50
+
 systemctl restart kubelet.service
-sleep 50
+
 
 sudo kubectl get nodes
 
