@@ -89,17 +89,16 @@ kubeadm init #--apiserver-advertise-address=$ip_address
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+sleep 10
+#export kubever=$(kubectl version | base64 | tr -d '\n')
+#kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 
-export kubever=$(kubectl version | base64 | tr -d '\n')
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+sleep 60
+kubectl get nodes
 
 
-#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-
-systemctl restart containerd.service
-
-systemctl restart kubelet.service
 
 
 sudo kubectl get nodes
