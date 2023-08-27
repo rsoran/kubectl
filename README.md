@@ -23,9 +23,17 @@ To ensure proper communication within the Kubernetes cluster, manually add the m
    git clone https://github.com/rsoran/kubectl.git
    cd kubectl
 
+**make it executable and run**
 
-make it executable and run
 chmod +x kubectl.sh
 ./kubectl.sh
+
+**Important Notes**
+The script modifies firewall rules, installs Docker, and configures Kubernetes components. Ensure you understand these changes before proceeding.
+The script may require adjustments based on your network configuration or specific use case.
+**Disclaimer**
+This script is provided as-is, without warranties or guarantees. Use it at your own risk. Review and understand the script's content before executing it on your system.
+
+
 
 
