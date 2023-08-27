@@ -25,10 +25,11 @@ To ensure proper communication within the Kubernetes cluster, manually add the m
 
 **make it executable and run**
 
+ ```bash
 chmod +x kubectl.sh
 
 ./kubectl.sh
-
+```
 **Important Notes**
 The script modifies firewall rules, installs Docker, and configures Kubernetes components. Ensure you understand these changes before proceeding.
 The script may require adjustments based on your network configuration or specific use case.
