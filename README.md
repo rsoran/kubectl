@@ -26,6 +26,7 @@ To ensure proper communication within the Kubernetes cluster, manually add the m
 **make it executable and run**
 
 chmod +x kubectl.sh
+
 ./kubectl.sh
 
 **Important Notes**
